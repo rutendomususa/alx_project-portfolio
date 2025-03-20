@@ -7,6 +7,12 @@ body {
     text-align: center;
 }
 
+header {
+    background: #0044cc;
+    color: white;
+    padding: 15px;
+}
+
 /* Navbar Styles */
 nav {
     display: flex;
@@ -129,115 +135,6 @@ html {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-header {
-    background: #0044cc;
-    color: white;
-    padding: 15px;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #0044cc;
-    padding: 15px;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-.nav-left {
-    margin-left: 20px;
-}
-
-.nav-right {
-    margin-right: 20px;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.intro {
-    padding: 50px;
-    background: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    margin: 50px auto;
-    width: 50%;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #0044cc;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 4px;
-}
-
-.cta-button:hover {
-    background: #003399;
-}
-
-
-.info-section {
-    padding: 40px;
-    background: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    margin: 50px auto;
-    width: 60%;
-    text-align: center;
-}
-
-.info-section h2 {
-    color: #0044cc;
-}
-
-.info-section p {
-    font-size: 18px;
-    color: #333;
-    line-height: 1.6;
-}
-
 footer {
     background: #333;
     color: white;
@@ -247,3 +144,5 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
+
