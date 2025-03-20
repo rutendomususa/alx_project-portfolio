@@ -48,17 +48,29 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Course Enrollment Validation
-    document.getElementById("course-form")?.addEventListener("submit", function (event) {
+    document.getElementById("course-form").addEventListener("submit", function(event) {
         event.preventDefault();
-        let courseName = document.getElementById("course-name").value.trim();
-        let studentName = document.getElementById("student-name").value.trim();
-
-        if (!courseName || !studentName) {
-            alert("Please provide all details!");
+        
+        let courseName = document.getElementById("course-name").value;
+        let studentName = document.getElementById("student-name").value;
+        let email = document.getElementById("student-email").value;
+    
+        if (courseName === "" || studentName === "" || email === "") {
+            alert("Please fill in all fields!");
             return;
         }
-
-        alert("Enrollment Successful!");
-        this.reset();
+    
+        fetch("/enroll", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ course_name: courseName, student_name: studentName, email: email })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            document.getElementById("course-form").reset();
+        })
+        .catch(error => console.error("Error:", error));
     });
+    
 });
