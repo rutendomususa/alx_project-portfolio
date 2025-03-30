@@ -21,9 +21,9 @@ ul{
 
 .button_1{
 	height: 38px;
-	background: #0D4E0B;
+	background: #002366  ;
 	border: 0;
-	padding-left: 20px;
+	padding-left: 20px;    
 	padding-right: 20px;
 	color:#ffffff;
 }
@@ -39,11 +39,11 @@ ul{
 /*header*/
 
 header{
-	background: #0D4E0B;
+	background: #002366;
 	color: #ffffff;
 	padding-top: 10px;
 	min-height: 70px;
-	border-bottom: #0D4E0B 1px solid;  
+	border-bottom: #002366 1px solid;  
 }
 
 header a{
@@ -79,7 +79,7 @@ header .highlight ,header .current a{
 }
 
 header a:hover{
-	color: blue;
+	color: goldenrod;
 	font-weight:bold;
 }
 
@@ -92,7 +92,7 @@ header a:hover{
 	background-position: center;
 	background-size: cover;
 	text-align: center;
-	color: #0D4E0B;
+	color: whitesmoke;
 }
 
 #showcase h1{
@@ -109,7 +109,7 @@ margin-bottom: 10px;
 #newsletter{
 	padding: 15px;
 	color: #ffffff;
-	background: #0D4E0B;
+	background: #002366;
 
 }
 
@@ -170,13 +170,198 @@ aside#sidebar .quote input, aside#sidebar .quotetextarea{
  	background: #e6e6e6;
  }
 
+/*About us page*/
+
+.about-section {
+	padding: 4rem 2rem;
+	background-color: #f7f7f7;
+	text-align: center;
+  }
+  
+  .about-section h2 {
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+  }
+  
+  .about-section p {
+	line-height: 1.6;
+	margin-bottom: 2rem;
+  }
+  
+  .team-profiles {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+  }
+  
+  .team-member {
+	flex: 1 1 30%;
+	margin: 1rem;
+	text-align: left;
+  }
+  
+  .team-member ul {
+	list-style: none;
+	padding: 0;
+  }
+  
+  .team-member ul li {
+	margin: 0.5rem 0;
+  }
+  
+  .team-member ul li a {
+	text-decoration: none;
+	color: #007bff;
+  }
+  
+  .team-member ul li a:hover {
+	text-decoration: underline;
+  }
+/*Course page*/
+
+header {
+	background: linear-gradient(90deg, #002366, #FFD700);
+	color: white;
+	padding: 20px;
+	text-align: center;
+}
+.courses {
+	width: 80%;
+	margin: auto;
+	padding: 20px;
+	text-align: center;
+}
+.course-category {
+	margin: 30px 0;
+}
+.course-category h3 {
+	color: #002366;
+	border-bottom: 3px solid #FFD700;
+	display: inline-block;
+	padding-bottom: 5px;
+}
+.course {
+	display: inline-block;
+	width: 300px;
+	background: white;
+	margin: 15px;
+	padding: 20px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	text-align: center;
+}
+.course img {
+	width: 100%;
+	height: auto;
+	border-radius: 5px;
+}
+.course h4 {
+	color: #002366;
+	margin-top: 10px;
+}
+.course p {
+	font-size: 14px;
+	color: #555;
+}
+.course a {
+	display: inline-block;
+	padding: 8px 15px;
+	margin-top: 10px;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 5px;
+	transition: background 0.3s ease-in-out;
+}
+.view {
+	background: #FFD700;
+	color: #002366;
+}
+.enroll {
+	background: #002366;
+	color: white;
+}
+.view:hover {
+	background: #e6c300;
+}
+.enroll:hover {
+	background: #001a4d;
+}
+/* Login Form Styles */
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 30px;
+    margin: 50px auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.form-container h2 {
+    color: #002366;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    text-align: left;
+    color: #002366;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background: #FFD700;
+    color: #002366;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.form-container button:hover {
+    background: #e6c300;
+}
+
+.form-container p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.form-container a {
+    color: #002366;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+
 footer{
 	margin-top: 20px;
 	padding: 20px;
 	color: #ffffff;
-	background: #0D4E0B;
+	background: #002366;
 	text-align: center;
-
+}
 
 
 
