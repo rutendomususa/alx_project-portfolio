@@ -74,3 +74,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
 });
+// Course Enrollment Validation
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("enrollment-form");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        // Get form values
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const course = document.getElementById("course").value;
+        
+        // Simple validation
+        if (name === "" || email === "" || course === "") {
+            alert("Please fill in all fields.");
+            return;
+        }
+        
+        if (!validateEmail(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+        
+        // Display confirmation message
+        alert(`Thank you, ${name}! You have successfully enrolled in ${course}.`);
+        
+        // Optionally, clear the form after submission
+        form.reset();
+    });
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+});
