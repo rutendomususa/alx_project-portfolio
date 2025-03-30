@@ -1,3 +1,4 @@
+Please the link to my landing page the system is not accepting my second link  https://rutendomususa.github.io/alx_project-portfolio/
 <b>Project Name: EduConnect</b>
  Tagline: Bridging the Education Gap with Digital Learning
 
