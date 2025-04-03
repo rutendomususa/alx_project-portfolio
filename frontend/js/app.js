@@ -17,19 +17,50 @@ document.addEventListener("DOMContentLoaded", function () {
     revealSections();
 
     // Signup Form Validation
-    document.getElementById("signup-form")?.addEventListener("submit", function (event) {
-        event.preventDefault();
-        let name = document.getElementById("name").value.trim();
-        let email = document.getElementById("email").value.trim();
-        let password = document.getElementById("password").value.trim();
-
-        if (!name || !email || !password) {
-            alert("Please fill in all fields!");
+    document.getElementById("register").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        // Collect form values
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const confirmPassword = document.getElementById("confirm-password").value.trim();
+    
+        // Validation: Ensure all fields are filled
+        if (!name || !email || !phone || !password || !confirmPassword) {
+            alert("❌ Please fill in all fields before submitting.");
+            return; // Stop execution
+        }
+    
+        // Validation: Ensure passwords match
+        if (password !== confirmPassword) {
+            alert("❌ Passwords do not match. Please re-enter.");
             return;
         }
-
-        alert("Signup Successful!");
-        this.reset();
+    
+        // Prepare data for API request
+        const formData = {
+            name: name,
+            email: email,
+            phone: phone,
+            password: password
+        };
+    
+        // Send data to Flask API
+        fetch("http://127.0.0.1:5000/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message); // Show response from server
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("❌ Something went wrong. Please try again.");
+        });
     });
 
     // Login Form Validation
@@ -109,3 +140,106 @@ document.addEventListener("DOMContentLoaded", function() {
         return re.test(email);
     }
 });
+// enrolment session 
+document.addEventListener("DOMContentLoaded", function () {
+    const userEmail = sessionStorage.getItem("user_email"); // Get stored email from session
+
+    if (userEmail) {
+        const enrollButtons = document.querySelectorAll(".enroll-btn");
+        enrollButtons.forEach(button => {
+            button.setAttribute("data-user-email", userEmail);
+        });
+    }
+});
+// enrollment click handler 
+document.addEventListener("DOMContentLoaded", function () {
+    const enrollButtons = document.querySelectorAll(".enroll-btn");
+
+    enrollButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const courseId = this.getAttribute("data-course-id");
+            const userEmail = this.getAttribute("data-user-email");
+
+            if (!userEmail) {
+                alert("Please log in to enroll in this course.");
+                window.location.href = "/login"; // Redirect to login page
+                return;
+            }
+
+            fetch("/enroll", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    user_email: userEmail,
+                    course_id: courseId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        });
+    });
+});
+
+// Enrollment Request
+document.addEventListener("DOMContentLoaded", function () {
+    const enrollButtons = document.querySelectorAll(".enroll-btn");
+
+    enrollButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const courseId = this.getAttribute("data-course-id");
+            const userEmail = this.getAttribute("data-user-email");
+
+            if (!userEmail) {
+                alert("Please log in to enroll in this course.");
+                window.location.href = "/login"; 
+                return;
+            }
+
+            fetch("/enroll", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ user_email: userEmail, course_id: courseId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        });
+    });
+});
+//Progress Update Request
+
+function updateProgress(courseId, newProgress) {
+    const userEmail = sessionStorage.getItem("user_email"); 
+
+    fetch("/update_progress", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            user_email: userEmail,
+            course_id: courseId,
+            progress: newProgress
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Progress updated:", data.message);
+    })
+    .catch(error => {
+        console.error("Error updating progress:", error);
+    });
+}
