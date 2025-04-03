@@ -1,4 +1,4 @@
-from database import connect_db
+from db_config import connect_db
 
 def enroll_student(course_name, student_name, email):
     connection = connect_db()
